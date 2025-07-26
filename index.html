@@ -34,7 +34,7 @@
                 <td>
                     <button class="btn btn-success btn-sm">EDIT</button>
                     <button class="btn btn-info btn-sm">VIEW</button>
-                    <button class="btn btn-danger btn-sm" >DELETE</button>
+                    <button onclick="deleteElement(this)" class="btn btn-danger btn-sm" >DELETE</button>
                 </td>
             </tr>
 
@@ -48,7 +48,7 @@
                 <td>
                     <button class="btn btn-success btn-sm">EDIT</button>
                     <button class="btn btn-info btn-sm">VIEW</button>
-                    <button onclick="deleteElement()" class="btn btn-danger btn-sm" >DELETE</button>
+                    <button onclick="deleteElement(this)" class="btn btn-danger btn-sm" >DELETE</button>
                 </td>
             </tr>
         </tbody>
@@ -61,8 +61,14 @@
     <script>
         
         //1. Function defination 
-        function deleteElement(){
-            console.log("hello from deleteElement function")
+        function deleteElement(elem){
+            console.log(elem);
+            console.log(elem.closest('tr'));
+
+            // function chaining 
+            elem.closest('tr').remove();
+
+            console.log("hello from deleteElement function") 
         }
     </script>
 </body>
